@@ -1,0 +1,14 @@
+# Ignorar frontend já tem o seu próprio .gitignore, mas vamos garantir:
+
+frontend/node_modules/
+frontend/build/
+
+# Arquivos de log gerais
+*.log
+
+# Caches do Python
+__pycache__/
+*.pyc
+
+# Configurações do VS Code
+.vscode/
