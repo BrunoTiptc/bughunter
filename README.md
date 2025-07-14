@@ -41,3 +41,7 @@ source venv/bin/activate  # Linux/macOS
 venv\Scripts\activate     # Windows
 pip install -r requirements.txt
 python app.py
+
+cd frontend
+npm install
+npm start
