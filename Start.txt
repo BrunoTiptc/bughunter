@@ -1,0 +1,11 @@
+Para iniciar o servidor back end , vai na pasta back end e
+abra o terminal e digite 
+pyhton app.py
+
+
+Depois abra a pasta front end 
+abra o terminal e digite 
+npm start
+
+
+navegador backend 
