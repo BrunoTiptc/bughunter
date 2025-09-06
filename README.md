@@ -25,7 +25,7 @@
 
 #### Backend:
 - Python
-- Flask (ou FastAPI, dependendo do que usou)
+- Flask 
 - JSON / REST API
 
 ---
