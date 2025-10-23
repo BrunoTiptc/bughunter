@@ -1,11 +1,26 @@
-Para iniciar o servidor back end , vai na pasta back end e
-abra o terminal e digite 
-pyhton app.py
 
+Instruções rápidas
 
-Depois abra a pasta front end 
-abra o terminal e digite 
-npm start
+1) Ativar o ambiente virtual (Windows PowerShell):
 
+	.\venv\Scripts\Activate.ps1
 
-navegador backend 
+2) Rodar os testes:
+
+	pytest -v
+
+	(Se preferir o comando universal: python -m pytest -v)
+
+---
+
+Backend 
+Vá para a pasta `backend`, abra o terminal e execute:
+
+	python app.py
+
+Frontend 
+Vá para a pasta `frontend`, abra o terminal e execute:
+
+	npm start
+
+```
