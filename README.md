@@ -1,3 +1,5 @@
+# TESTE DE ACESSO DE EDIÇÃO
+
 <h1 align="center">🕵️‍♂️ Bughunter</h1>
 
 <p align="center">
@@ -45,3 +47,9 @@ python app.py
 cd frontend
 npm install
 npm start
+
+```
+
+---
+
+_Alteração de teste feita por IA para validar permissões de edição!_

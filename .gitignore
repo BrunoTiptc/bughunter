@@ -1,0 +1,23 @@
+# Ignorar ambientes virtuais
+venv/
+env/
+.venv/
+Cria/
+novamente/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# VS Code
+.vscode/
+
+# OS files
+Thumbs.db
+.DS_Store
