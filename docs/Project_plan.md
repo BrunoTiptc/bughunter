@@ -12,7 +12,7 @@
 - [ ] Iniciar estudos para o backend Flask
 
 ## 📝 A fazer
-- [ ] Criar backend em Python com Flask
+- [x] Criar backend em Python com Flask
 - [ ] Fazer API de bugs
 - [ ] Testar integração React + Flask
 - [ ] Iniciar automação com Selenium
