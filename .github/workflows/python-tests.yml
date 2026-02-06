@@ -31,5 +31,5 @@ jobs:
       - name: Run tests (target folder)
         run: |
           echo "Listing test folder contents:"
-          ls -la qabunker/qa/automation || true
-          python -m pytest qabunker/qa/automation -v
+          ls -la qa/automation || true
+          python -m pytest qa/automation -v --cov=qa/automation --cov-report=term-missing

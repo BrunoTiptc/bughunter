@@ -1,101 +1,139 @@
-# Getting Started with Create React App
+# 🐞 BugHunter — Projeto de QA e Inteligência Aumentada
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> **BugHunter** é um projeto educacional e prático focado em **Qualidade de Software (QA)**, automação de testes e boas práticas de engenharia, usando **JavaScript**, **Node.js**, **containers (Docker)** e **pipelines CI/CD**.
 
-## Available Scripts
+Este repositório não é sobre "apenas codar", mas sobre **pensar como QA**, entender **fluxo**, **estado**, **eventos**, **erros** e **qualidade desde a base**.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🎯 Objetivo do Projeto
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+O objetivo do BugHunter é servir como um **laboratório de QA**, onde:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* Casos de teste são criados a partir do comportamento do sistema
+* Erros são tratados como **eventos observáveis**
+* Fluxos de sucesso e falha são claramente definidos
+* Testes automatizados validam o sistema continuamente
+* Ambientes são reproduzíveis (local, CI e futuro cloud)
 
-### `npm test`
+Tudo isso com foco em **aprendizado real**, não superficial.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🧠 Conceitos-Chave Trabalhados
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Controle de fluxo
+* Tratamento de erros
+* Eventos e callbacks
+* Estado da aplicação
+* Testes automatizados (QA)
+* Separação de responsabilidades (frontend / backend / testes)
+* CI/CD
+* Containers e orquestração
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🧱 Arquitetura (Visão Geral)
 
-### `npm run eject`
+A estrutura do projeto segue uma separação clara entre **aplicação**, **qualidade** e **infraestrutura**, alinhada com práticas modernas de QA.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-## Instruções para Testes em Português
-
-Para executar os testes, você pode usar o seguinte comando:
-
-### `npm test`
-
-Isso iniciará o executor de testes no modo interativo. Você pode ver os resultados dos testes no console.
-
-Certifique-se de que todos os testes estejam passando antes de enviar suas alterações.
-
-## Rodando os testes (para recrutadores)
-
-Use o comando universal, que funciona em qualquer shell e não depende de ativar o venv:
-
-```powershell
-python -m pytest -v
+```
+BugHunter
+├── frontend/                # Interface do usuário (React)
+│   ├── src/
+│   └── public/
+│
+├── backend/                 # API e regras de negócio
+│   ├── src/
+│   └── server.js
+│
+├── qa/                      # Camada de Qualidade (QA)
+│   ├── tests/               # Casos de teste automatizados
+│   ├── reports/             # Relatórios de execução
+│   └── config/              # Configurações de testes
+│
+├── docker/                  # Infraestrutura com containers
+│   ├── frontend.Dockerfile
+│   ├── backend.Dockerfile
+│   └── docker-compose.yml
+│
+├── k8s/                     # Orquestração (Kubernetes - básico)
+│   ├── frontend-deployment.yml
+│   ├── backend-deployment.yml
+│   └── services.yml
+│
+├── .github/
+│   └── workflows/           # Pipelines CI/CD (GitHub Actions)
+│
+└── README.md
 ```
 
-Alternativas:
-- No Prompt de Comando (cmd.exe): `pytest -v` (se `pytest` estiver disponível no PATH)
-- No PowerShell: `.\pytest -v` se houver um executável local `pytest.cmd` no diretório do projeto
+📌 **Importante:** a pasta `qa/` não depende diretamente do código da aplicação. Ela observa o sistema de fora, como um QA deve fazer.
 
-Recomendação: prefira `python -m pytest -v` para garantir que os testes rodem sem configuração adicional.
+---
 
-Nota: se `pytest -v` não estiver disponível, executar este comando instala o pytest para o seu usuário e normalmente faz com que `pytest` fique disponível no VS Code:
+## 🧪 Estratégia de Testes (QA)
 
-```powershell
-python -m pip install --user pytest
-```
+Os testes são pensados como:
 
+* 🔍 Observadores de eventos
+* ⚠️ Detectores de falha
+* ✅ Validadores de sucesso
 
+Exemplos de cenários testados:
+
+* Formulário com dados inválidos
+* Campos vazios ou nulos
+* Respostas inesperadas da API
+* Fluxo correto de sucesso
+* Mensagens de erro exibidas corretamente
+
+---
+
+## ⚙️ Tecnologias Utilizadas
+
+* JavaScript (base do projeto)
+* Node.js
+* React
+* Playwright / Cypress (automação de testes)
+* Docker & Docker Compose
+* GitHub Actions (CI/CD)
+* Kubernetes (conceito e prática inicial)
+
+---
+
+## 🚀 Filosofia do Projeto
+
+> **A máquina executa. O humano decide.**
+
+O BugHunter segue o conceito de **Inteligência Aumentada**:
+
+* O ser humano mantém o controle
+* A IA auxilia no raciocínio
+* QA garante qualidade e confiança
+* Automação reduz erro humano
+
+Não é sobre velocidade. É sobre **fazer do jeito certo**.
+
+---
+
+## 📌 Status do Projeto
+
+🚧 Em reconstrução intencional
+
+Os testes, pipelines e ambientes estão sendo **refeitos do zero**, com foco em:
+
+* clareza
+* organização
+* aprendizado sólido
+
+---
+
+## 🤝 Autor
+
+**Bruno**
+Engenharia de Software • QA • Automação • Visão de Futuro
+
+---
+
+> *"Qualidade não é um passo final. É o caminho inteiro."*
