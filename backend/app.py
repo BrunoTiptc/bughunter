@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -6,6 +7,15 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     return jsonify({"message": "Backend Flask rodando com sucesso!"})
+
+# Health check (rota de vida)
+@app.route("/health", methods=["GET"])
+def health():
+    return jsonify({
+        "status": "ok",
+        "service": "bughunter-backend",
+        "timestamp": datetime.utcnow().isoformat()
+    }), 200
 
 # Exemplo de rota GET
 @app.route("/api/hello", methods=["GET"])
@@ -19,4 +29,4 @@ def echo():
     return jsonify({"you_sent": data})
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    app.run(host="0.0.0.0", port=5000, debug=True)

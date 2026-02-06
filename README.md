@@ -137,3 +137,6 @@ Engenharia de Software • QA • Automação • Visão de Futuro
 ---
 
 > *"Qualidade não é um passo final. É o caminho inteiro."*
+
+
+“Construi um projeto sozinho, organizando modos de execução, backend local e em container, testes de saúde da API, scripts de inicialização e automação básica, entendendo conflitos reais de porta, proxy e ambiente.”

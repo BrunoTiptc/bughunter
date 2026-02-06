@@ -1,45 +1,106 @@
-@echo off
-title Menu de Inicialização - Projeto QA
+# ▶️ START – BugHunter (Guia Rápido)
 
-:MENU
-cls
-echo ============================================
-echo        Projeto QA - Menu de Inicialização
-echo ============================================
-echo.
-echo 1 - Rodar Testes (pytest)
-echo 2 - Rodar Backend (python app.py)
-echo 3 - Rodar Frontend (npm start)
-echo 4 - Rodar Tudo (Testes + Backend + Frontend)
-echo 0 - Sair
-echo.
-set /p opcao=Escolha uma opcao: 
+Guia direto para **abrir e rodar o projeto**, sem entrar em código.
 
-if "%opcao%"=="1" goto TESTES
-if "%opcao%"=="2" goto BACKEND
-if "%opcao%"=="3" goto FRONTEND
-if "%opcao%"=="4" goto TUDO
-if "%opcao%"=="0" exit
-goto MENU
+---
 
-:TESTES
-call .\venv\Scripts\activate.bat
-python -m pytest -v
-pause
-goto MENU
+## 1️⃣ Abrir o projeto
 
-:BACKEND
-call .\venv\Scripts\activate.bat
-start cmd /k "cd /d %~dp0backend && python app.py"
-goto MENU
+```bash
+git clone <URL_DO_REPOSITORIO>
+cd bughunter
+code .
+```
 
-:FRONTEND
-start cmd /k "cd /d %~dp0frontend && npm start"
-goto MENU
+---
 
-:TUDO
-call .\venv\Scripts\activate.bat
-python -m pytest -v
-start cmd /k "cd /d %~dp0backend && python app.py"
-start cmd /k "cd /d %~dp0frontend && npm start"
-goto MENU
+## 2️⃣ Rodar o Backend (Docker – padrão do projeto)
+
+Build da imagem:
+
+```bash
+docker build -t bughunter-backend ./backend
+```
+
+Subir o container:
+
+```bash
+docker run -p 3000:3000 bughunter-backend
+```
+
+Verificar no navegador:
+
+```
+http://localhost:3000/health
+```
+
+Se retornar `status: ok`, o backend está pronto.
+
+---
+
+## 3️⃣ Rodar testes QA
+
+Teste de health (JS puro):
+
+```bash
+node qa/tests/api-health.test.js
+```
+
+---
+
+## 4️⃣ Rodar o Frontend
+
+```bash
+cd frontend
+npm install
+npm start
+```
+
+---
+
+## 5️⃣ Inicialização rápida (Windows)
+
+Execute:
+
+```
+start.bat
+```
+
+Use o menu para rodar backend, frontend e testes.
+
+---
+
+## 6️⃣ Fluxo recomendado
+
+1. Abrir projeto no VS Code
+2. Subir backend via Docker
+3. Validar `/health`
+4. Rodar testes QA
+5. Subir frontend
+
+---
+
+## 🐳 Nomear a instância Docker (boa prática)
+
+Para evitar containers com nomes aleatórios, utilize um nome fixo:
+
+```bash
+docker run --name bughunter-api -p 3000:3000 bughunter-backend
+```
+
+Isso facilita:
+
+* identificar o serviço no Docker Desktop
+* parar/remover o container
+* futura automação com CI ou Docker Compose
+
+Para parar e remover:
+
+```bash
+docker stop bughunter-api
+docker rm bughunter-api
+```
+
+---
+
+Pronto. Ambiente iniciado, sistema vivo e pronto para evoluir.

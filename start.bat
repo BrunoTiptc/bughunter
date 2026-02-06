@@ -32,7 +32,7 @@ start cmd /k "cd /d %~dp0backend && python app.py"
 goto MENU
 
 :FRONTEND
-start cmd /k "cd /d %~dp0frontend && npm start"
+start cmd /k "cd /d %~dp0frontend && set PORT=3001 && npm start"
 goto MENU
 
 :TUDO
