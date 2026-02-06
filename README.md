@@ -68,3 +68,34 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Instruções para Testes em Português
+
+Para executar os testes, você pode usar o seguinte comando:
+
+### `npm test`
+
+Isso iniciará o executor de testes no modo interativo. Você pode ver os resultados dos testes no console.
+
+Certifique-se de que todos os testes estejam passando antes de enviar suas alterações.
+
+## Rodando os testes (para recrutadores)
+
+Use o comando universal, que funciona em qualquer shell e não depende de ativar o venv:
+
+```powershell
+python -m pytest -v
+```
+
+Alternativas:
+- No Prompt de Comando (cmd.exe): `pytest -v` (se `pytest` estiver disponível no PATH)
+- No PowerShell: `.\pytest -v` se houver um executável local `pytest.cmd` no diretório do projeto
+
+Recomendação: prefira `python -m pytest -v` para garantir que os testes rodem sem configuração adicional.
+
+Nota: se `pytest -v` não estiver disponível, executar este comando instala o pytest para o seu usuário e normalmente faz com que `pytest` fique disponível no VS Code:
+
+```powershell
+python -m pip install --user pytest
+```
+
+
