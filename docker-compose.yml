@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+
+  backend:
+    build:
+      context: ./backend
+    container_name: bughunter-backend
+    ports:
+      - "5000:5000"
+    networks:
+      - bughunter-network
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: bughunter-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - bughunter-network
+    restart: unless-stopped
+
+networks:
+  bughunter-network:
+    driver: bridge

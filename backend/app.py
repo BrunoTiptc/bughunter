@@ -20,7 +20,7 @@ def health():
 # Exemplo de rota GET
 @app.route("/api/hello", methods=["GET"])
 def hello():
-    return jsonify({"message": "Olá Bruno, sua API está viva 🚀"})
+    return jsonify({"message": "Api está funcionando  ✔"})
 
 # Exemplo de rota POST
 @app.route("/api/echo", methods=["POST"])

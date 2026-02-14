@@ -28,11 +28,11 @@ function App() {
           {/* Mostra a resposta do backend */}
           <h1>Frontend React</h1>
           <p>Resposta do backend Flask: {mensagem}</p>
+<Routes>
+  <Route path="/" element={<Login />} />
+  <Route path="/report" element={<BugReport />} />
+</Routes>
 
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/report" element={<BugReport />} />
-          </Routes>
         </div>
       </div>
     </Router>

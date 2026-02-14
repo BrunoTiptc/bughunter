@@ -1,0 +1,73 @@
+# 🐞 BugHunter
+
+Projeto full stack com foco em **automação de testes, containers e orquestração**.
+
+---
+
+## 📦 Estrutura do Projeto
+
+```
+BugHunter
+├── frontend/      # Interface React
+├── backend/       # API (Node.js)
+├── qa/            # Automação de testes
+├── docker/        # Infraestrutura Docker
+├── docs/          # Documentação funcional e testes
+├── k8s/           # Manifests Kubernetes
+└── .github/       # CI/CD (GitHub Actions)
+```
+
+---
+
+## 🚀 Como Executar com Docker
+
+Na raiz do projeto:
+
+```bash
+docker compose -f docker/docker-compose.yml up --build
+```
+
+Frontend:
+
+```
+http://localhost:3000
+```
+
+Backend:
+
+```
+http://localhost:5000
+```
+
+---
+
+## 🧪 Rodar Testes Automatizados
+
+Com ambiente ativo:
+
+```bash
+pytest qa/tests -v
+```
+
+---
+
+## 🎯 Objetivo
+
+* Demonstrar arquitetura moderna
+* Aplicar boas práticas de QA
+* Trabalhar com containers e orquestração
+* Preparar base para CI/CD e Kubernetes
+
+---
+
+## 🔮 Próximos Passos
+
+* Pipeline automatizado
+* Testes E2E containerizados
+* Deploy em Kubernetes
+* Monitoramento e logs
+
+---
+
+BugHunter não é só código.
+É laboratório de engenharia.

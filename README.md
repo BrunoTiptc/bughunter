@@ -57,6 +57,14 @@ BugHunter
 │   ├── backend.Dockerfile
 │   └── docker-compose.yml
 │
+├──docs/                       #documentação do projeto
+│   ├── selenium/
+│   |   └── test_login.py
+│   ├── test-cases/
+│   │   └──TCRF001_Login.md
+│   └── requisitos/
+│       └── login.md
+│
 ├── k8s/                     # Orquestração (Kubernetes - básico)
 │   ├── frontend-deployment.yml
 │   ├── backend-deployment.yml
