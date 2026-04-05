@@ -1,106 +1,88 @@
-# ▶️ START – BugHunter (Guia Rápido)
+▶️ START – BugHunter (Guia Rápido)
 
-Guia direto para **abrir e rodar o projeto**, sem entrar em código.
+Guia direto para abrir e rodar o projeto completo.
 
----
-
-## 1️⃣ Abrir o projeto
-
-```bash
+1️⃣ Clonar o projeto
 git clone <URL_DO_REPOSITORIO>
 cd bughunter
-code .
-```
 
----
+🐳 2️⃣ Subir tudo com Docker (RECOMENDADO)
 
-## 2️⃣ Rodar o Backend (Docker – padrão do projeto)
+Na raiz do projeto:
 
-Build da imagem:
+docker compose up --build
 
-```bash
-docker build -t bughunter-backend ./backend
-```
 
-Subir o container:
+Isso irá:
 
-```bash
-docker run -p 3000:3000 bughunter-backend
-```
+Subir Backend Flask → http://localhost:5000
 
-Verificar no navegador:
+Subir Frontend React → http://localhost:3000
 
-```
-http://localhost:3000/health
-```
+Criar network interna entre os serviços
 
-Se retornar `status: ok`, o backend está pronto.
+3️⃣ Validar backend
 
----
+Acesse:
 
-## 3️⃣ Rodar testes QA
+http://localhost:5000/health
 
-Teste de health (JS puro):
 
-```bash
-node qa/tests/api-health.test.js
-```
+Se retornar:
 
----
+{ "status": "ok" }
 
-## 4️⃣ Rodar o Frontend
 
-```bash
-cd frontend
-npm install
-npm start
-```
+Backend funcionando.
 
----
+4️⃣ Rodar testes automatizados
 
-## 5️⃣ Inicialização rápida (Windows)
+Com os containers rodando:
+
+pytest -v
+
+
+Inclui:
+
+Testes unitários
+
+Testes Selenium (E2E do login)
+
+🖥 5️⃣ Alternativa Windows (menu automático)
 
 Execute:
 
-```
+start-docker.bat
+
+
+ou
+
 start.bat
-```
 
-Use o menu para rodar backend, frontend e testes.
 
----
+Para rodar via menu interativo.
 
-## 6️⃣ Fluxo recomendado
+🔁 Parar o ambiente
+docker compose down
 
-1. Abrir projeto no VS Code
-2. Subir backend via Docker
-3. Validar `/health`
-4. Rodar testes QA
-5. Subir frontend
+📦 Stack do Projeto
 
----
+Backend: Flask (Python)
 
-## 🐳 Nomear a instância Docker (boa prática)
+Frontend: React
 
-Para evitar containers com nomes aleatórios, utilize um nome fixo:
+Testes: Pytest + Selenium
 
-```bash
-docker run --name bughunter-api -p 3000:3000 bughunter-backend
-```
+Containerização: Docker + Docker Compose
 
-Isso facilita:
+🎯 Fluxo recomendado
 
-* identificar o serviço no Docker Desktop
-* parar/remover o container
-* futura automação com CI ou Docker Compose
+Clonar
 
-Para parar e remover:
+docker compose up --build
 
-```bash
-docker stop bughunter-api
-docker rm bughunter-api
-```
+Acessar http://localhost:3000
 
----
+Rodar pytest
 
-Pronto. Ambiente iniciado, sistema vivo e pronto para evoluir.
+Desenvolver

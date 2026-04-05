@@ -2,13 +2,13 @@
 :MENU
 cls
 echo ============================================
-echo Projeto QA - Menu Local (sem Container)
+echo BugHunter - Menu Local (Sem Docker)
 echo ============================================
 echo.
 echo 1 - Rodar Testes (pytest)
-echo 2 - Rodar Backend Local (python app.py)
-echo 3 - Rodar Frontend Local (npm start)
-echo 4 - Rodar Tudo Local (Testes + Backend + Frontend)
+echo 2 - Rodar Backend Local (porta 5000)
+echo 3 - Rodar Frontend Local (porta 3000)
+echo 4 - Rodar Tudo Local
 echo 0 - Sair
 echo.
 set /p opcao=Escolha uma opcao:
@@ -21,23 +21,40 @@ if "%opcao%"=="0" exit
 goto MENU
 
 :TESTES
+if not exist venv (
+    echo Ambiente virtual nao encontrado!
+    echo Crie com: python -m venv venv
+    pause
+    goto MENU
+)
 call .\venv\Scripts\activate.bat
 python -m pytest -v
 pause
 goto MENU
 
 :BACKEND
+if not exist venv (
+    echo Ambiente virtual nao encontrado!
+    pause
+    goto MENU
+)
 call .\venv\Scripts\activate.bat
 start cmd /k "cd /d %~dp0backend && python app.py"
 goto MENU
 
 :FRONTEND
-start cmd /k "cd /d %~dp0frontend && set PORT=3001 && npm start"
+start cmd /k "cd /d %~dp0frontend && set PORT=3000 && npm start"
 goto MENU
 
 :TUDO
+if not exist venv (
+    echo Ambiente virtual nao encontrado!
+    pause
+    goto MENU
+)
 call .\venv\Scripts\activate.bat
-python -m pytest -v
 start cmd /k "cd /d %~dp0backend && python app.py"
-start cmd /k "cd /d %~dp0frontend && npm start"
+start cmd /k "cd /d %~dp0frontend && set PORT=3000 && npm start"
+timeout /t 3 > nul
+python -m pytest -v
 goto MENU
