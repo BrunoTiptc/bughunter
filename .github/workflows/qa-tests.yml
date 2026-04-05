@@ -33,3 +33,11 @@ jobs:
 
       - name: Rodar testes QA (Node)
         run: node qa-tests/run-tests.js
+
+      - name: Upload QA Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: qa-report
+          path: |
+            qa-report.json
+            qa-report.html
