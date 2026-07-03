@@ -54,7 +54,7 @@ bughunter/
 	[Jira Board](https://brunoptc.atlassian.net)
 - Exemplos:
 	- SCRUM-2 → Health Check da API
-	- SCRUM-3 → Validação de rotas inválidas
+	- SCRUM-4 → Validar comportamentos de rotas invalidas
 
 Os testes automatizados seguem esses cenários, garantindo alinhamento entre planejamento e execução.
 
