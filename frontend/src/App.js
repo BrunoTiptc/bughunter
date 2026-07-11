@@ -22,6 +22,9 @@ function App() {
         <nav className="bg-blue-700 text-white p-4 shadow-md flex justify-center space-x-6">
           <Link to="/" className="hover:underline font-semibold">Login</Link>
           <Link to="/report" className="hover:underline font-semibold">Relatar Bug</Link>
+          <Link to="/" className="hover:underline font-semibold">Help</Link>
+          <Link to="/" className="hover:underline font-semibold">Frameworks</Link>
+          <Link to="/" className="hover:underline font-semibold">Docs</Link>
         </nav>
 
         <div className="p-4">

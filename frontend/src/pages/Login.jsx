@@ -13,10 +13,15 @@ export default function Login() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    if (!formData.email || !formData.senha) {
-      setError("Campo obrigatório");
+    if (!formData.email) {
+      setError("O campo E-mail é obrigatório.");
+      return;
+    }
+    
+    if (!formData.senha) {
+      setError("O campo Senha é obrigatório.");
       return;
     }
 
@@ -31,24 +36,18 @@ export default function Login() {
 
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label className="block mb-1">E-mail</label>
-          <input
-            type="email"
-            name="email"
-            className="w-full p-2 border rounded"
-            onChange={handleChange}
-          />
-        </div>
 
-        <div className="mb-4">
-          <label className="block mb-1">Senha</label>
-          <input
-            type="password"
-            name="senha"
-            className="w-full p-2 border rounded"
-            onChange={handleChange}
-          />
-        </div>
+      {/* O htmlFor se conecta diretamente com o id do input abaixo */}
+      <label htmlFor="email-input" className="block mb-1">E-mail</label>
+      <input
+        id="email-input" // Adicionado o ID correspondente
+        type="email"
+        name="email"
+        className="w-full p-2 border rounded"
+        onChange={handleChange}
+        value={formData.email} // Adicionado o value para controlar o input 
+      />
+    </div>
 
         {error && (
           <p className="text-red-600 text-sm mb-3">
